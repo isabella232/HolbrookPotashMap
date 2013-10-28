@@ -4,7 +4,7 @@ var app = {
     attribution: '<a href="https://www.mapbox.com/about/maps/">Terms & Feedback</a>'
   }),
   landUseLayer: L.tileLayer('http://{s}.tiles.usgin.org/potash/{z}/{x}/{y}.png'),
-  wellsLayer: L.geoJson(wells, {pointToLayer: pointToLayer, onEachFeature: onEachFeature})
+  wellsLayer: L.geoJson(null, {pointToLayer: pointToLayer, onEachFeature: onEachFeature})
 };
 
 app.baseLayer.addTo(app.map);
@@ -16,6 +16,12 @@ L.geocoderControl().addTo(app.map);
 d3.select('#toggle-info').on('click', function () {
   var enabled = d3.select('#info').classed('hidden');
   d3.select('#info').classed('hidden', !enabled);
+});
+
+// Load the well data asynchronously
+d3.json('wells.json', function (err, data) {
+  if (err) return console.log(err);
+  app.wellsLayer.addData(data);
 });
 
 // Define the symbology for the different well types

@@ -10,7 +10,6 @@ var app = {
 app.baseLayer.addTo(app.map);
 app.landUseLayer.addTo(app.map);
 app.wellsLayer.addTo(app.map);
-L.geocoderControl().addTo(app.map);
 
 // Add click effect to the legend toggler
 d3.select('#toggle-info').on('click', function () {

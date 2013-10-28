@@ -25,25 +25,35 @@ d3.json('wells.json', function (err, data) {
 
 // Define the symbology for the different well types
 function pointToLayer(feature, latlng) {
-	if (feature.properties.statlab == "Drilled")
-		return L.marker(latlng, {icon: L.icon({iconUrl: 'style/img/circle-18.png'})});
-	else
-		return L.marker(latlng, {icon: L.icon({iconUrl: 'style/img/circle-stroked-18.png'})});
+  var drilled = feature.properties.statlab === "Drilled",
+      marker = {
+        radius: 6.5,
+        fillColor: '#444',
+        opacity: 1
+      };
+  marker.color = drilled ? '#fff': '#444';
+  marker.fillOpacity = drilled ? 1 : 0;
+  marker.weight = drilled ? 0.5 : 1.5;
+  return L.circleMarker(latlng, marker);
 }
 
 // Create the text for the popup which is shown when a well is clicked
 function onEachFeature(feature, layer) {
-	var popupText = "<center><b>Well: " + feature.properties.lease_no + "</b></center>";
-	popupText += "<br><b>API Number: </b>" + feature.properties.api_number;
-	popupText += "<br><b>Permit Number: </b>" + feature.properties.permit;
-	popupText += "<br><b>Operator: </b>" + feature.properties.operator;
-	popupText += "<br><b>Township-Range, Section: </b>" + feature.properties.twp + "-" + feature.properties.rge + ", " + feature.properties.section;
-	popupText += "<br><b>Depth: </b>" + feature.properties.total_dept;
-	popupText += "<br><b>Formation: </b>" + feature.properties.fm_at_td;
-	popupText += "<br><b>Year Drilled: </b>" + feature.properties.compldate;
-	popupText += "<br><b>Status: </b>" + feature.properties.statlab;
-	popupText += "<br>Click <a href=\"" + feature.properties.url + "\" target=\"_blank\">" + "<i>here</i>" + "</a> to see a copy of the permit.";
-	layer.bindPopup(popupText);
-	
-	return;
+  var popupText = '<table class="table table-striped table-bordered">';
+  [ 
+    ['Well: ', feature.properties.lease_no],
+    ['API Number: ', feature.properties.api_number],
+    ['Permit Number: ', feature.properties.permit],
+    ['Operator: ', feature.properties.operator],
+    ['Township-Range, Section: ', feature.properties.twp + "-" + feature.properties.rge + ", " + feature.properties.section],
+    ['Depth: ', feature.properties.total_dept],
+    ['Formation: ', feature.properties.fm_at_td],
+    ['Year Drilled: ', feature.properties.compldate],
+    ['Status: ', feature.properties.statlab],
+    ['Permit File: ', '<a href="' + feature.properties.url + '">Download PDF</a>']
+  ].forEach(function (row) {
+    popupText += '<tr><th>' + row[0] + '</th><td>' + row[1] + '</td></tr>';
+  });
+	popupText += "</table>";
+  layer.bindPopup(popupText);
 }

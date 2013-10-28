@@ -59,3 +59,26 @@ body { overflow: hidden; }
         background-size: contain;
     }
 }
+
+/* Leaflet Popup Overrides */
+.leaflet-popup-content-wrapper {
+    border-radius: 2px;
+    -webkit-box-shadow:0 1px 2px rgba(0,0,0,0.15);
+    box-shadow:0 1px 2px rgba(0,0,0,0.15);
+    pointer-events: all;
+}
+
+.leaflet-popup-content {
+    line-height: 1.6em;
+    margin: 12px 16px;
+}
+
+.leaflet-popup-content .marker-title {
+    font-weight: bold;
+    line-height: 2em;
+}
+
+.leaflet-popup-tip {
+    -webkit-box-shadow:0 1px 2px rgba(0,0,0,0.15);
+    box-shadow:0 1px 2px rgba(0,0,0,0.15);
+}

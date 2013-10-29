@@ -1,14 +1,17 @@
 var app = {
-  map: L.map('map', {center: [34.7900, -109.7706], zoom: 10, minZoom: 10, maxZoom: 14, maxBounds: new L.LatLngBounds([34.0441,-110.8322],[35.7604,-108.6514])}),
-  baseLayer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  map: L.map('map', {center: [34.7900, -109.7706], zoom: 11, minZoom: 10, maxZoom: 14, maxBounds: new L.LatLngBounds([34.0441,-110.8322],[35.7604,-108.6514])}),
+  //baseLayer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  baseLayer: L.tileLayer('http://a.tiles.mapbox.com/v3/azgs.map-kxqopd01/{z}/{x}/{y}.png', {
     attribution: '<a href="https://www.mapbox.com/about/maps/">Terms & Feedback</a>'
   }),
   landUseLayer: L.tileLayer('http://{s}.tiles.usgin.org/potash/{z}/{x}/{y}.png'),
+  roadsAndLabelsLayer: L.tileLayer('http://a.tiles.mapbox.com/v3/azgs.map-0owroizd/{z}/{x}/{y}.png'),
   wellsLayer: L.geoJson(null, {pointToLayer: pointToLayer, onEachFeature: onEachFeature})
 };
 
 app.baseLayer.addTo(app.map);
 app.landUseLayer.addTo(app.map);
+app.roadsAndLabelsLayer.addTo(app.map);
 app.wellsLayer.addTo(app.map);
 
 // Add click effect to the legend toggler
@@ -31,6 +34,7 @@ function pointToLayer(feature, latlng) {
         fillColor: '#444',
         opacity: 1
       };
+  marker.radius = drilled ? 6.5: 5.5;
   marker.color = drilled ? '#fff': '#444';
   marker.fillOpacity = drilled ? 1 : 0;
   marker.weight = drilled ? 0.5 : 1.5;

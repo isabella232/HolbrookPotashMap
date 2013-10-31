@@ -1,11 +1,13 @@
 var app = {
   map: L.map('map', {center: [34.7900, -109.7706], zoom: 11, minZoom: 10, maxZoom: 14, maxBounds: new L.LatLngBounds([34.0441,-110.8322],[35.7604,-108.6514])}),
-  //baseLayer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  baseLayer: L.tileLayer('http://a.tiles.mapbox.com/v3/azgs.map-kxqopd01/{z}/{x}/{y}.png', {
-    attribution: '<a href="https://www.mapbox.com/about/maps/">Terms & Feedback</a>'
+  // baseLayer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {							// OpenLayers map for development
+  baseLayer: L.tileLayer('http://a.tiles.mapbox.com/v3/azgs.map-kxqopd01/{z}/{x}/{y}.png', {				// path to MapBox hosted tiles (max 10k hits)
+    attribution: '<a href="https://www.mapbox.com/about/maps/">Terms & Feedback</a>', detectRetina: true
   }),
-  landUseLayer: L.tileLayer('http://{s}.tiles.usgin.org/potash/{z}/{x}/{y}.png'),
-  roadsAndLabelsLayer: L.tileLayer('http://a.tiles.mapbox.com/v3/azgs.map-0owroizd/{z}/{x}/{y}.png'),
+  //landUseLayer: L.tileLayer('tile-mill-project/export/explodedMbtiles/{z}/{x}/{y}.png', {detectRetina: true}), // path to local exploded mbtiles
+  //landUseLayer: L.tileLayer('http://localhost/3000/{z}/{x}/{y}.png', {detectRetina: true}), 					 // path to mbtiles locally served with mbtiles-server
+  landUseLayer: L.tileLayer('http://{s}.tiles.usgin.org/potash/{z}/{x}/{y}.png', {detectRetina: true}),			 // path to AZGS hosted tiles
+  roadsAndLabelsLayer: L.tileLayer('http://a.tiles.mapbox.com/v3/azgs.map-0owroizd/{z}/{x}/{y}.png', {detectRetina: true}),  // path to MapBox hosted tiles (max 10k hits)
   wellsLayer: L.geoJson(null, {pointToLayer: pointToLayer, onEachFeature: onEachFeature})
 };
 

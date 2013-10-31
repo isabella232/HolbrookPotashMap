@@ -20,6 +20,15 @@ body { overflow: hidden; }
     bottom: 0px;
 }
 
+#info-box {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: auto;
+}
+
 /* Position the toggle button */
 #toggle-info {
     background-color: #fff;
@@ -59,6 +68,9 @@ body { overflow: hidden; }
     #logo {
         background: url('img/azgs-logo-ret.png');
         background-size: contain;
+    }
+    #info {
+        background-color: #000;
     }
 }
 

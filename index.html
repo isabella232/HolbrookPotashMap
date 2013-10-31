@@ -11,39 +11,44 @@
             <script src="scripts/r2d3.js"></script>
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
         <![endif]-->
-        <link rel="stylesheet" href="style/bootstrap-tables.min.css" />
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="style/base.css" />
 		<link rel="stylesheet" href="style/legend.css" />		
     </head>
     <body>
         <div id="map"></div>
 		<div id="info">
-		<div id="toggle-info"></div>
-		<div class='legend-title'>Holbrook Basin Potash Deposit</div>
-		<table id="legend">
-			<tr>
-				<td width=50%>
-				<div class='legend-summary'>The Colorado Plateau east of Holbrook is underlain by a potash deposit <a href="http://www.azgs.az.gov/minerals_potash.shtml">estimated by the AZGS to contain between 682 million and 2.27 billion metric tons</a> of the mineral. This map shows contours of the estimated thickness of the potash-bearing layers in the subsurface, as well as the locations of permitted wells in the area. The deposit underlies lands that include private, State Trust, Tribal, and National Park holdings. In 2004 the <a href="http://www.nps.gov/pefo/parknews/park-boundary-expansion.htm">Petrified Forest Expansion Act</a> added 125,000 acres to the Park. However, much of that land remains privately owned.</div>
-				</td>
-				<td width=20%>
-				  <ul class='legend-labels1'>
-					<li><span style='background:#BEBADA;'></span>NPS Owned Lands</li>
-					<li><span style='background:#FFFFB3;'></span>BLM Lands</li>
-					<li><span style='background:#FDB462;'></span>Native Lands</li>
-					<li><span style='background:#8DD3C7;'></span>State Trust Lands</li>
-					<li><span style='background:#80B1D3;'></span>County Lands</li>
-					<li><span style='background:#D9D9D9;'></span>Private Lands</li>
-				  </ul>
-				<td>
-				  <ul class='legend-labels2'>
-					<li><img src="style/img/WellDrilledLegend.png"></img>Drilled Wells</li>
-					<li><img src="style/img/WellPermittedLegend.png"></img>Permitted Wells (since 2009)</li>
-					<li><img src='style/img/ContourLegend.png'></img>Potash Thickness Contours (ft.)</li>
-					<li><img src='style/img/NPLegend.png'></img>Petrified Forest N.P. Boundary</li>
-				  </ul>
-				</td>
-			</tr>
-		</table>
+			<div id="toggle-info"></div>
+			<div id="info-box">
+				<div class="container-fluid">
+					<div class="row-fluid">
+						<div class="col-md-5">
+							<h4>Holbrook Basin Potash Deposit</h4>
+							<div>The Colorado Plateau east of Holbrook is underlain by a potash deposit <a href="http://www.azgs.az.gov/minerals_potash.shtml">estimated by the AZGS to contain between 682 million and 2.27 billion metric tons</a> of the mineral. This map shows contours of the estimated thickness of the potash-bearing layers in the subsurface, as well as the locations of permitted wells in the area. The deposit underlies lands that include private, State Trust, Tribal, and National Park holdings. In 2004 the <a href="http://www.nps.gov/pefo/parknews/park-boundary-expansion.htm">Petrified Forest Expansion Act</a> added 125,000 acres to the Park. However, much of that land remains privately owned.</div>
+						</div>
+						<div class="col-md-3">
+							<h4>Land Ownership</h4>
+							<ul class='legend-labels1'>
+								<li><span style='background:#BEBADA;'></span>NPS Owned Lands</li>
+								<li><span style='background:#FFFFB3;'></span>BLM Lands</li>
+								<li><span style='background:#FDB462;'></span>Native Lands</li>
+								<li><span style='background:#8DD3C7;'></span>State Trust Lands</li>
+								<li><span style='background:#80B1D3;'></span>County Lands</li>
+								<li><span style='background:#D9D9D9;'></span>Private Lands</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h4>Mapped Features</h4>
+							<ul class='legend-labels2'>
+								<li><img src="style/img/WellDrilledLegend.png"></img>Drilled Wells</li>
+								<li><img src="style/img/WellPermittedLegend.png"></img>Permitted Wells (since 2009)</li>
+								<li><img src='style/img/ContourLegend.png'></img>Potash Thickness Contours (ft.)</li>
+								<li><img src='style/img/NPLegend.png'></img>Petrified Forest N.P. Boundary</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
         <a href="http://azgs.az.gov"><span id="logo"></span></a>
         <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>

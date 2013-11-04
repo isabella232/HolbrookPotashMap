@@ -56,7 +56,7 @@ Map {
     {text-name: [id];
   	text-face-name: 'Arial Regular';
   	text-fill: #666666;
-  	text-size: 10;
+  	text-size: 14;
  	text-halo-fill: fadeout(white, 30%);
   	text-halo-radius: 2;
   	text-placement: line;
@@ -64,9 +64,9 @@ Map {
 }
 
 #townships[zoom > 11] {
-  line-color:#c0c0c2;
+  line-color:#000;
   line-dasharray: 15, 2, 1;
-  line-width:1.5;
+  line-width:.5;
   polygon-opacity:0;
   text-name: "T" + [town] + [twndir] + " R" + [range] + [rngdir];
   text-face-name: 'Arial Italic';

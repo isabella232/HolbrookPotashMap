@@ -1,6 +1,6 @@
 var app = {
   map: L.map('map', {center: [34.7900, -109.7706], zoom: 11, minZoom: 10, maxZoom: 14, maxBounds: new L.LatLngBounds([32.9286,-112.3538],[36.9746,-107.1078])}),
-  baseLayer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {							// OpenLayers map for development
+  baseLayer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),						// OpenLayers map for development
   //landUseLayer: L.tileLayer('tile-mill-project/export/explodedMbtiles/{z}/{x}/{y}.png', {detectRetina: true}), // path to local exploded mbtiles
   //landUseLayer: L.tileLayer('http://localhost/3000/{z}/{x}/{y}.png', {detectRetina: true}), 					 // path to mbtiles locally served with mbtiles-server
   landUseLayer: L.tileLayer('http://{s}.tiles.usgin.org/potash/{z}/{x}/{y}.png', {detectRetina: true}),			 // path to AZGS hosted tiles
